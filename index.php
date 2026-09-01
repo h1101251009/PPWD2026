@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        echo "Hello, Ello!";
+        echo "Hello, Ello! Selamat datang di praktikum pemrograman web.";
     ?>
 </body>
 </html> 
