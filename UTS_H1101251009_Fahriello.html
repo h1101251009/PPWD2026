@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artikel</title>
+  </head>
+
+  <style>
+    /* Tema LIght (Default) */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      background-color: #f4f6f8;
+      color: #222222;
+      transition: 0.3s;
+    }
+
+    header,
+    footer {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    header h1 {
+      margin: 10px;
+      font-size: 24px;
+    }
+
+    header p {
+      margin: 2px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 15px;
+    }
+
+    section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    section h2 {
+      margin-top: 0;
+    }
+
+    /* Tema Dark */
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #222222;
+      border-radius: 6px;
+      background-color: #ffffff;
+      color: #222222;
+      transition: 0.3s;
+    }
+
+    body.dark {
+      background-color: #121212;
+      color: #eeeeee;
+    }
+
+    body.dark header,
+    body.dark footer,
+    body.dark section {
+      background-color: #1e1e1e;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark button {
+      background-color: #333333;
+      color: #ffffff;
+      border-color: #eeeeee;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      main {
+        margin: 10px auto;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <body>
+    <header>
+      <h1>Perkembangan Teknologi Digital</h1>
+      <p>Nama: Fahriello Ardhyana Saputra</p>
+      <p>NIM: H1101251009</p>
+      <p>Prodi: Sistem Informasi</p>
+      <button id="tombolTema">🌙 Dark Mode</button>
+    </header>
+  </body>
+
+  <main>
+    <section>
+      <h2>Pendahuluan</h2>
+      <p>
+        Teknologi digital berkembang pesat dalam beberapa dekade terakhir.
+        Hampir Semua Aspek Kehidupan, mulai dari pendidikan, pekerjaan, hingga
+        hiburan, kini bergantung pada perangkat digital dan internet.
+      </p>
+
+      <p>
+        Namun, teknologi digital juga membawa tantangan seperti keamanan data,
+        kecanduan gawai, dan penyebaran informasi palsu. Karena itu, pengguna
+        perlu bijak dalam memanfaatkannya.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 - Fahriello Ardhyana Saputra - H1101251009</p>
+  </footer>
+
+  <script>
+     // Mengambil tombol Dark Mode dari HTML
+        var tombolTema = document.getElementById("tombolTema");
+
+        // Fungsi untuk mengubah teks/ikon tombol sesuai tema yang aktif
+        function ubahIkon() {
+            if (document.body.classList.contains("dark")) {
+                tombolTema.textContent = "☀️ Light Mode";
+            } else {
+                tombolTema.textContent = "🌙 Dark Mode";
+            }
+        }   
+
+        // Mengecek tema yang tersimpan di localStorage saat halaman dibuka
+        var temaTersimpan = localStorage.getItem("tema");
+
+        if (temaTersimpan === "dark") {
+            document.body.classList.add("dark");
+        }
+        ubahIkon();
+
+        // Mengubah tema ketika tombol diklik
+        tombolTema.addEventListener("click", function () {
+            // Menambah atau menghapus class "dark" pada body
+            document.body.classList.toggle("dark");
+
+            // Menyimpan pilihan tema terbaru ke localStorage
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("tema", "dark");
+            } else {
+                localStorage.setItem("tema", "light");
+            }
+
+            // Mengganti ikon tombol
+            ubahIkon();
+        });
+    </script>
+  </script>
+</html>
