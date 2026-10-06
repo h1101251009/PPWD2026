@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keranjang Belanja</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Warung Kita</h1>
+      <p>Belanja di atas Rp 100.000 diskon 10%</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Produk</h2>
+        <div id="produkList"></div>
+      </section>
+
+      <section class="card">
+        <h2>Keranjang</h2>
+        <div id="cartItems"></div>
+        <p class="total"><span>Total</span> <span id="cartTotal">Rp 0</span></p>
+        <button id="btnCheckout" class="besar">Checkout</button>
+      </section>
+
+      <section class="card">
+        <h2>Riwayat</h2>
+        <ul id="riwayatList"></ul>
+      </section>
+    </main>
+
+    <!-- Latihan 3: modal data pembeli -->
+    <div id="modal">
+      <form id="formPembeli" novalidate>
+        <h2>Data Pembeli</h2>
+        <label for="nama">Nama</label>
+        <input id="nama" />
+        <div class="error" id="errNama">Nama minimal 3 karakter.</div>
+        <label for="alamat">Alamat</label>
+        <textarea id="alamat" rows="3"></textarea>
+        <div class="error" id="errAlamat">Alamat minimal 10 karakter.</div>
+        <label for="hp">No. HP</label>
+        <input id="hp" placeholder="08xxxxxxxxxx" />
+        <div class="error" id="errHp">
+          No. HP tidak valid (contoh: 081234567890).
+        </div>
+        <div class="aksi">
+          <button type="button" id="btnBatal" class="abu">Batal</button>
+          <button type="submit">Bayar</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
