@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portofolio Fahriello</title>
+    <meta
+      name="description"
+      content="Portofolio Yan, mahasiswa Sistem Informasi yang membuat aplikasi web."
+    />
+    <!-- Font dari Google Fonts; jika offline, otomatis memakai Arial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Pasang tema sebelum halaman tampil agar tidak berkedip -->
+    <script>
+      try {
+        var t = localStorage.getItem("tema");
+        if (
+          t === "gelap" ||
+          (!t && matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("gelap");
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="lewati" href="#proyek">Langsung ke proyek</a>
+
+    <!-- ===== Bagian atas ===== -->
+    <header class="header">
+      <a class="logo" href="#atas">Rilo</a>
+      <nav class="menu" aria-label="Navigasi utama">
+        <a href="#proyek">Proyek</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#kontak">Kontak</a>
+        <button id="tombol-tema" type="button" aria-label="Ganti tema">
+          Mode gelap
+        </button>
+      </nav>
+    </header>
+
+    <main class="isi" id="atas">
+      <!-- ===== Perkenalan ===== -->
+      <section class="perkenalan">
+        <h1 class="muncul" style="--urutan: 0">
+          Saya membuat aplikasi web yang rapi dan mudah dipakai.
+        </h1>
+        <p class="muncul" style="--urutan: 1">
+          Halo, saya Fahriello Ardhyana Saputra, mahasiswa Sistem Informasi. Di
+          sini saya mengumpulkan proyek-proyek yang sudah saya kerjakan.
+        </p>
+        <div class="muncul aksi" style="--urutan: 2">
+          <a class="tombol utama" href="#proyek">Lihat proyek</a>
+          <a class="tombol" href="#kontak">Hubungi saya</a>
+        </div>
+      </section>
+
+      <!-- ===== Daftar proyek ===== -->
+      <section id="proyek" class="bagian">
+        <div class="judul-bagian">
+          <h2>Proyek <span id="jumlah" class="jumlah"></span></h2>
+        </div>
+
+        <div class="alat">
+          <input
+            type="search"
+            id="cari"
+            placeholder="Cari proyek... (tekan / )"
+            aria-label="Cari proyek"
+          />
+          <div class="filter" role="group" aria-label="Filter kategori">
+            <button type="button" class="chip aktif" data-filter="semua">
+              Semua
+            </button>
+            <button type="button" class="chip" data-filter="pertemuan">
+              Pertemuan
+            </button>
+            <button type="button" class="chip" data-filter="ujian">
+              Ujian
+            </button>
+          </div>
+        </div>
+
+        <section class="daftar-proyek">
+          <a
+            class="kartu"
+            data-kategori="pertemuan"
+            href="Pertemuan%209/index.html"
+          >
+            <div>
+              <h3>Pertemuan 9</h3>
+              <p>Tugas dari pertemuan 9.</p>
+            </div>
+            <span class="label">Tugas</span>
+          </a>
+
+          <a
+            class="kartu"
+            data-kategori="pertemuan"
+            href="Pertemuan%2011/index.html"
+          >
+            <div>
+              <h3>Pertemuan 11</h3>
+              <p>Tugas dari pertemuan 11.</p>
+            </div>
+            <span class="label">Tugas</span>
+          </a>
+
+          <a
+            class="kartu"
+            data-kategori="pertemuan"
+            href="Pertemuan%2012/index.html"
+          >
+            <div>
+              <h3>Pertemuan 12</h3>
+              <p>Portal portofolio dan proyek pertemuan 12.</p>
+            </div>
+            <span class="label">Tugas</span>
+          </a>
+
+          <a
+            class="kartu"
+            data-kategori="ujian"
+            href="UTS/UTS_H1101251009_Fahriello.html"
+          >
+            <div>
+              <h3>UTS</h3>
+              <p>Proyek ujian tengah semester.</p>
+            </div>
+            <span class="label">UTS</span>
+          </a>
+
+          <!-- Mau menambah proyek? Salin satu blok <a class="kartu"> di atas,
+             lalu ubah href, data-kategori, judul, dan deskripsinya.
+             Spasi pada nama folder ditulis %20 (contoh: "Pertemuan 13" jadi Pertemuan%2013). -->
+        </section>
+
+        <p id="pesan-kosong" class="pesan-kosong">
+          Tidak ada proyek yang cocok. Coba kata kunci lain atau pilih "Semua".
+        </p>
+      </section>
+
+      <!-- ===== Keahlian ===== -->
+      <section id="keahlian" class="bagian">
+        <div class="judul-bagian"><h2>Keahlian</h2></div>
+        <ul class="keahlian">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Git dan GitHub</li>
+          <li>Analisis sistem</li>
+          <li>Basis data</li>
+        </ul>
+      </section>
+
+      <!-- ===== Kontak ===== -->
+      <section id="kontak" class="bagian">
+        <div class="judul-bagian"><h2>Kontak</h2></div>
+        <p class="kontak">
+          Punya pertanyaan atau ajakan kerja sama? Kirim email ke
+          <a href="mailto:h1101251009@student.untan.ac.id"
+            >h1101251009@student.untan.ac.id </a
+          >.
+        </p>
+      </section>
+    </main>
+
+    <footer class="kaki">
+      <span>&copy; <span id="tahun"></span> Yan</span>
+      <a href="#atas">Kembali ke atas</a>
+    </footer>
+
+    <!-- Menghubungkan file JavaScript (letakkan paling bawah) -->
+    <script src="script.js"></script>
+  </body>
+</html>

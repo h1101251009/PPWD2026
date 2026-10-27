@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Langkah. | Premium Footwear</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- CDN jQuery & jQuery Validation Plugin -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  </head>
+  <body>
+    <!-- PRELOADER (Efek FadeOut jQuery) -->
+    <div id="preloader">
+      <div class="spinner"></div>
+      <p>Memuat Langkah...</p>
+    </div>
+
+    <!-- NAVBAR (Glassmorphism) -->
+    <nav id="navbar">
+      <div class="container nav-wrap">
+        <a href="#" class="logo">Beli Woi<span>.</span></a>
+        <ul class="nav-list">
+          <li><a href="#katalog" class="nav-link">Koleksi</a></li>
+          <li><a href="#fitur" class="nav-link">Keunggulan</a></li>
+          <li><a href="#pendaftaran" class="nav-link">Member</a></li>
+          <!-- Dark Mode Toggle Button -->
+          <li>
+            <button id="theme-toggle" class="theme-btn">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="container hero-container">
+        <div class="hero-text">
+          <div class="badge-hero">Koleksi Musim Panas 2026</div>
+          <h1>HAHA<br /><span>Mantap Ni</span> Beli Lah.</h1>
+          <p>
+            Eksplorasi koleksi sepatu premium dengan material ramah lingkungan
+            dan desain ergonomis tingkat tinggi. Nyaman di setiap pijakan.
+          </p>
+          <div class="hero-action">
+            <a href="#katalog" class="btn-primary"
+              >Eksplorasi Sekarang <i class="fa-solid fa-arrow-right"></i
+            ></a>
+            <a href="#pendaftaran" class="btn-outline">Daftar Member</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Efek Floating Animasi CSS -->
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800"
+            alt="Sepatu Merah Melayang"
+            class="floating-shoe"
+          />
+          <div class="glow-effect"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FITUR HIGHLIGHT -->
+    <section id="fitur" class="container section-pad features">
+      <div class="feat-box">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Gratis Ongkir</h3>
+        <p>Pengiriman aman ke seluruh Indonesia tanpa biaya tambahan.</p>
+      </div>
+      <div class="feat-box">
+        <i class="fa-solid fa-medal"></i>
+        <h3>100% Original</h3>
+        <p>Garansi uang kembali jika produk kami terbukti tidak asli.</p>
+      </div>
+      <div class="feat-box">
+        <i class="fa-solid fa-headset"></i>
+        <h3>Layanan 24/7</h3>
+        <p>Tim support kami siap membantu kendala ukuran kapan saja.</p>
+      </div>
+    </section>
+
+    <!-- TABS KATEGORI (Efek Fade & Animasi Hover) -->
+    <section id="katalog" class="section-pad bg-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Koleksi <span>Terbaru</span></h2>
+          <p>Pilih kategori yang paling menggambarkan karakter Anda.</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-target="#tab-sneakers">
+            Sneakers
+          </button>
+          <button class="tab-btn" data-target="#tab-formal">Formal</button>
+          <button class="tab-btn" data-target="#tab-sport">Sport</button>
+        </div>
+
+        <!-- Tab 1: Sneakers -->
+        <div id="tab-sneakers" class="tab-content grid-layout">
+          <div class="card">
+            <div class="card-img">
+              <img
+                src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=400"
+                alt="Urban Air"
+              />
+              <span class="badge badge-hot">Hot Item</span>
+            </div>
+            <div class="card-info">
+              <h3>Urban Air v2</h3>
+              <p>Desain *streetwear* dengan sirkulasi udara maksimal.</p>
+              <div class="card-footer">
+                <span class="price">Rp 850.000</span>
+                <button class="btn-beli">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img
+                src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400"
+                alt="Classic White"
+              />
+            </div>
+            <div class="card-info">
+              <h3>Retro Classic White</h3>
+              <p>
+                Minimalis, elegan, dan cocok dipadukan dengan *outfit* apapun.
+              </p>
+              <div class="card-footer">
+                <span class="price">Rp 720.000</span>
+                <button class="btn-beli">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Formal -->
+        <div
+          id="tab-formal"
+          class="tab-content grid-layout"
+          style="display: none"
+        >
+          <div class="card">
+            <div class="card-img">
+              <img
+                src="https://images.unsplash.com/photo-1614252339460-e17614e21a24?auto=format&fit=crop&q=80&w=400"
+                alt="Oxford Leather"
+              />
+              <span class="badge badge-premium">Premium</span>
+            </div>
+            <div class="card-info">
+              <h3>Oxford Executive</h3>
+              <p>
+                Sepatu kulit asli buatan tangan untuk pertemuan krusial Anda.
+              </p>
+              <div class="card-footer">
+                <span class="price">Rp 1.450.000</span>
+                <button class="btn-beli">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Sport -->
+        <div
+          id="tab-sport"
+          class="tab-content grid-layout"
+          style="display: none"
+        >
+          <div class="card">
+            <div class="card-img">
+              <img
+                src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&q=80&w=400"
+                alt="Runner X"
+              />
+            </div>
+            <div class="card-info">
+              <h3>Aero Runner X</h3>
+              <p>
+                Ultra-ringan dengan bantalan responsif untuk lari jarak jauh.
+              </p>
+              <div class="card-footer">
+                <span class="price">Rp 1.100.000</span>
+                <button class="btn-beli">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM KOMPLEKS (jQuery Validation & Custom Rules) -->
+    <section id="pendaftaran" class="section-pad">
+      <div class="container">
+        <div class="form-wrapper glass-panel">
+          <div class="form-hero">
+            <h2>Join <span class="text-accent">VIP</span> Club</h2>
+            <p>Dapatkan akses rilis sepatu eksklusif dan diskon member.</p>
+          </div>
+
+          <form id="formMember">
+            <div class="form-group">
+              <label>Nama Lengkap</label>
+              <div class="input-icon">
+                <i class="fa-regular fa-user"></i>
+                <input
+                  type="text"
+                  name="nama"
+                  placeholder="Sesuai KTP/Identitas"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Aktif</label>
+                <div class="input-icon">
+                  <i class="fa-regular fa-envelope"></i>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="nama@email.com"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Nomor WhatsApp</label>
+                <div class="input-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <input type="text" name="hp" placeholder="08xxxxxxxxx" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Alamat Pengiriman</label>
+              <div class="input-icon align-top">
+                <i class="fa-solid fa-map-location-dot mt-3"></i>
+                <textarea
+                  name="alamat"
+                  rows="3"
+                  placeholder="Masukkan alamat lengkap RT/RW..."
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Password Keamanan</label>
+              <div class="input-icon">
+                <i class="fa-solid fa-lock"></i>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Min. 8 karakter (huruf & angka)"
+                />
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              Selesaikan Pendaftaran <i class="fa-solid fa-check-circle"></i>
+            </button>
+          </form>
+
+          <!-- Notifikasi Berhasil (Efek SlideDown) -->
+          <div id="notif-sukses" class="notif">
+            <i class="fa-solid fa-circle-check"></i> Selamat! Anda resmi menjadi
+            Member VIP Langkah.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <h3>Beli Woi<span>.</span></h3>
+          <p>PT Mak Bapak<br />Jl. Mak Bapak Aku, Pontianak 2026.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Beli Woi. | Tugas Mandiri Praktikum Web Dasar</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

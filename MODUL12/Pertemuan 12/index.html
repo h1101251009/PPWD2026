@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechNews ID - Portal Berita Teknologi Terkini</title>
+
+    <!-- Google Fonts: Inter (Sans-serif) & Lora (Serif for Editorial feel) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <style>
+      /* Kustomisasi Desain Minimalis & Elegan */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #222222;
+      }
+
+      /* Tipografi Editorial */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .navbar-brand {
+        font-family: "Lora", serif;
+      }
+
+      a {
+        color: #111;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: #777;
+      }
+
+      /* Warna Dasar Custom */
+      .bg-dark {
+        background-color: #121212 !important;
+      }
+      .text-muted {
+        color: #888888 !important;
+        font-weight: 300;
+      }
+
+      /* Efek Hover Gambar Minimalis (Subtle Zoom) */
+      .img-hover-wrapper {
+        overflow: hidden;
+        position: relative;
+      }
+      .img-hover-wrapper img {
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        display: block;
+        width: 100%;
+      }
+      .img-hover-wrapper:hover img {
+        transform: scale(1.04);
+      }
+
+      /* Pembatas Garis Halus (Thin Borders) */
+      .border-soft {
+        border-color: #f0f0f0 !important;
+      }
+      .border-bottom-soft {
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      /* Hero Section (Sesuai Syarat Modul) */
+      .hero-container {
+        position: relative;
+        background: url("https://picsum.photos/seed/techminimal/1600/900")
+          center/cover no-repeat;
+        min-height: 550px;
+        display: flex;
+        align-items: flex-end;
+        border-radius: 0px; /* Sudut tajam untuk kesan editorial */
+      }
+
+      .hero-gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Latar gradasi gelap yang subtle */
+        background: linear-gradient(
+          to bottom,
+          rgba(18, 18, 18, 0.1) 0%,
+          rgba(18, 18, 18, 0.9) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 3rem;
+        width: 100%;
+        max-width: 900px;
+      }
+
+      /* Kategori / Meta Teks Minimalis */
+      .meta-category {
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .hero-content .meta-category {
+        color: #d1d1d1;
+        border-bottom: 1px solid #d1d1d1;
+        padding-bottom: 2px;
+      }
+
+      /* Sidebar Numbering */
+      .trending-number {
+        font-family: "Lora", serif;
+        font-size: 2.5rem;
+        color: #e0e0e0;
+        font-style: italic;
+        line-height: 1;
+      }
+
+      /* Custom Cards tanpa border untuk Grid Berita Terbaru */
+      .minimal-card {
+        background: transparent;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. Header / Navbar Sesuai Syarat Modul -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+      <div class="container">
+        <a class="navbar-brand fs-3 fw-bold" href="#">TechNews.</a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto fs-6">
+            <li class="nav-item ms-lg-3">
+              <a class="nav-link active" href="#">Beranda</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a class="nav-link" href="#">Ulasan</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a class="nav-link" href="#">Kecerdasan Buatan</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a class="nav-link" href="#">Sains</a>
+            </li>
+            <li class="nav-item ms-lg-4">
+              <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container py-5">
+      <!-- 2. Headline Utama (Hero Section) -->
+      <section class="row mb-5">
+        <div class="col-12">
+          <div class="hero-container img-hover-wrapper">
+            <div class="hero-gradient-overlay"></div>
+            <div class="hero-content text-white">
+              <span class="meta-category">Laporan Khusus</span>
+              <h1 class="display-4 fw-normal mb-4 mt-2">
+                Era Baru Komputasi Kuantum: Menilik Masa Depan Keamanan Siber
+                Global
+              </h1>
+              <div class="d-flex align-items-center gap-3">
+                <span class="fs-6 font-monospace opacity-75"
+                  >Oleh Budi Santoso &mdash; 27 Oktober 2026</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Area Berita Utama + Sidebar -->
+      <!-- Penggunaan 'g-5' memberikan whitespace/jarak yang sangat lega antar kolom -->
+      <div class="row g-5 mb-5 border-bottom-soft pb-5">
+        <!-- Area Berita Utama (.col-lg-8) -->
+        <div class="col-12 col-lg-8">
+          <h3 class="fw-bold mb-4 pb-2 border-bottom-soft">Pilihan Redaksi</h3>
+
+          <!-- Artikel 1 -->
+          <article class="row g-4 mb-5 align-items-center img-hover-wrapper">
+            <div class="col-md-5">
+              <img
+                src="https://picsum.photos/seed/phone1/600/700"
+                class="img-fluid"
+                alt="Berita 1"
+              />
+            </div>
+            <div class="col-md-7">
+              <span class="meta-category">Gadget</span>
+              <h4 class="fw-normal mb-3">
+                <a href="#"
+                  >Pendekatan Minimalis Apple: Membedah Desain Antarmuka iOS
+                  20</a
+                >
+              </h4>
+              <p class="text-muted fw-light mb-3">
+                Fokus pada pengurangan elemen visual yang mengganggu, memberikan
+                ruang lebih bagi pengguna untuk bernapas secara digital.
+              </p>
+              <small class="text-muted font-monospace">4 Jam yang lalu</small>
+            </div>
+          </article>
+
+          <!-- Artikel 2 -->
+          <article class="row g-4 mb-5 align-items-center img-hover-wrapper">
+            <div class="col-md-5">
+              <img
+                src="https://picsum.photos/seed/ai2/600/700"
+                class="img-fluid"
+                alt="Berita 2"
+              />
+            </div>
+            <div class="col-md-7">
+              <span class="meta-category">Kecerdasan Buatan</span>
+              <h4 class="fw-normal mb-3">
+                <a href="#"
+                  >Etika Algoritma: Saat Mesin Mulai Mengambil Keputusan
+                  Moral</a
+                >
+              </h4>
+              <p class="text-muted fw-light mb-3">
+                Sebuah esai mendalam tentang batasan implementasi AI dalam
+                sektor kesehatan dan peradilan pidana.
+              </p>
+              <small class="text-muted font-monospace">1 Hari yang lalu</small>
+            </div>
+          </article>
+
+          <!-- Artikel 3 -->
+          <article class="row g-4 align-items-center img-hover-wrapper">
+            <div class="col-md-5">
+              <img
+                src="https://picsum.photos/seed/startup3/600/700"
+                class="img-fluid"
+                alt="Berita 3"
+              />
+            </div>
+            <div class="col-md-7">
+              <span class="meta-category">Startup</span>
+              <h4 class="fw-normal mb-3">
+                <a href="#"
+                  >Kebangkitan Bootstrap: Mengapa Para Pendiri Meninggalkan
+                  Pendanaan Ventura</a
+                >
+              </h4>
+              <p class="text-muted fw-light mb-3">
+                Pergeseran paradigma di Silicon Valley menuju pertumbuhan
+                organik dan profitabilitas jangka panjang.
+              </p>
+              <small class="text-muted font-monospace">2 Hari yang lalu</small>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sidebar Trending (.col-lg-4) -->
+        <aside class="col-12 col-lg-4">
+          <div class="p-4 bg-light h-100">
+            <h5 class="fw-bold mb-4 pb-2 border-bottom-soft">Sedang Tren</h5>
+
+            <div class="d-flex align-items-start gap-3 mb-4">
+              <span class="trending-number">1</span>
+              <div>
+                <span class="meta-category">Web3</span>
+                <h6 class="fw-normal lh-base">
+                  <a href="#"
+                    >Arsitektur Desentralisasi Paling Relevan di Tahun Ini</a
+                  >
+                </h6>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start gap-3 mb-4">
+              <span class="trending-number">2</span>
+              <div>
+                <span class="meta-category">Siber</span>
+                <h6 class="fw-normal lh-base">
+                  <a href="#"
+                    >Audit Mandiri: Panduan Mengamankan Data Pribadi Anda</a
+                  >
+                </h6>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start gap-3 mb-4">
+              <span class="trending-number">3</span>
+              <div>
+                <span class="meta-category">Sains</span>
+                <h6 class="fw-normal lh-base">
+                  <a href="#"
+                    >Sintesis Material Baru Berpotensi Gantikan Baterai
+                    Lithium</a
+                  >
+                </h6>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start gap-3">
+              <span class="trending-number">4</span>
+              <div>
+                <span class="meta-category">Industri</span>
+                <h6 class="fw-normal lh-base">
+                  <a href="#"
+                    >Otomatisasi Pabrik Mencapai Titik Keseimbangan Baru</a
+                  >
+                </h6>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- 4. Grid Berita Terbaru -->
+      <section class="mt-4">
+        <div
+          class="d-flex justify-content-between align-items-end mb-4 pb-2 border-bottom-soft"
+        >
+          <h3 class="fw-bold mb-0">Rilis Terbaru</h3>
+          <a href="#" class="text-muted small"
+            >Lihat Semua Kumpulan Berita &rarr;</a
+          >
+        </div>
+
+        <div class="row g-4">
+          <!-- Kartu 1 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card minimal-card img-hover-wrapper h-100">
+              <img
+                src="https://picsum.photos/seed/arch/500/350"
+                class="card-img-top rounded-0 mb-3"
+                alt="Terbaru 1"
+              />
+              <div class="card-body p-0">
+                <span class="meta-category">Arsitektur Digital</span>
+                <h5 class="card-title fw-normal fs-6 lh-base">
+                  <a href="#"
+                    >Pentingnya Estetika Kode dalam Skalabilitas Proyek</a
+                  >
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kartu 2 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card minimal-card img-hover-wrapper h-100">
+              <img
+                src="https://picsum.photos/seed/desk/500/350"
+                class="card-img-top rounded-0 mb-3"
+                alt="Terbaru 2"
+              />
+              <div class="card-body p-0">
+                <span class="meta-category">Budaya Kerja</span>
+                <h5 class="card-title fw-normal fs-6 lh-base">
+                  <a href="#"
+                    >Remote Work 2.0: Menjaga Batas Psikologis di Rumah</a
+                  >
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kartu 3 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card minimal-card img-hover-wrapper h-100">
+              <img
+                src="https://picsum.photos/seed/camera/500/350"
+                class="card-img-top rounded-0 mb-3"
+                alt="Terbaru 3"
+              />
+              <div class="card-body p-0">
+                <span class="meta-category">Fotografi</span>
+                <h5 class="card-title fw-normal fs-6 lh-base">
+                  <a href="#"
+                    >Sensor Kamera Medium Format Mulai Merambah ke Ponsel</a
+                  >
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kartu 4 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card minimal-card img-hover-wrapper h-100">
+              <img
+                src="https://picsum.photos/seed/car/500/350"
+                class="card-img-top rounded-0 mb-3"
+                alt="Terbaru 4"
+              />
+              <div class="card-body p-0">
+                <span class="meta-category">Otomotif</span>
+                <h5 class="card-title fw-normal fs-6 lh-base">
+                  <a href="#"
+                    >Konsep Aerodinamis Terbaru Kendaraan Listrik Eropa</a
+                  >
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 5. Footer Sesuai Syarat Modul -->
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container text-center text-md-start">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <a class="navbar-brand fs-4 fw-bold text-white" href="#"
+              >TechNews.</a
+            >
+            <p class="text-muted small mt-2 mb-0">
+              Dikurasi dengan teliti. Mengubah derau digital menjadi sinyal
+              bermakna.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end text-muted small">
+            <a href="#" class="text-muted me-3">Tentang</a>
+            <a href="#" class="text-muted me-3">Kebijakan Privasi</a>
+            <a href="#" class="text-muted"><i class="bi bi-twitter-x"></i></a>
+            <br class="d-none d-md-block" />
+            <span class="d-block mt-2"
+              >&copy; 2026 TechNews ID. Hak Cipta Dilindungi.</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
