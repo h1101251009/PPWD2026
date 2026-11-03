@@ -15,7 +15,355 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* ===== 1. Warna =====
+         Ubah warna cukup di sini saja. */
+      :root {
+        --latar: #f1f5f3;
+        --permukaan: #ffffff;
+        --teks: #11201c;
+        --teks-pudar: #56685f;
+        --garis: #d3dfda;
+        --aksen: #0f766e;
+        --aksen-teks: #ffffff;
+        --font-judul: "Bricolage Grotesque", Arial, sans-serif;
+        --font-isi: "DM Sans", Arial, sans-serif;
+      }
+      html.gelap {
+        --latar: #0d1513;
+        --permukaan: #141e1b;
+        --teks: #e7f0ed;
+        --teks-pudar: #98ada6;
+        --garis: #263631;
+        --aksen: #5fd1c4;
+        --aksen-teks: #0d1513;
+      }
+
+      /* ===== 2. Dasar halaman ===== */
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font-isi);
+        font-size: 1.0625rem;
+        line-height: 1.65;
+        background: var(--latar);
+        color: var(--teks);
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      a {
+        color: var(--aksen);
+      }
+      :focus-visible {
+        outline: 3px solid var(--aksen);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      .lewati {
+        position: absolute;
+        left: -999px;
+      }
+      .lewati:focus {
+        left: 16px;
+        top: 12px;
+        background: var(--aksen);
+        color: var(--aksen-teks);
+        padding: 8px 14px;
+        border-radius: 8px;
+        z-index: 20;
+      }
+
+      /* ===== 3. Bagian atas ===== */
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px max(24px, calc((100% - 960px) / 2));
+        background: color-mix(in srgb, var(--latar) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--garis);
+      }
+      .logo {
+        font: 700 1.4rem var(--font-judul);
+        color: var(--teks);
+        text-decoration: none;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .menu a {
+        color: var(--teks-pudar);
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      .menu a:hover {
+        color: var(--aksen);
+      }
+      #tombol-tema {
+        padding: 7px 14px;
+        font: 500 0.85rem var(--font-isi);
+        border: 1.5px solid var(--aksen);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--aksen);
+        cursor: pointer;
+      }
+      #tombol-tema:hover {
+        background: var(--aksen);
+        color: var(--aksen-teks);
+      }
+
+      /* ===== 4. Isi halaman ===== */
+      .isi {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .perkenalan {
+        padding: clamp(56px, 12vw, 130px) 0 clamp(48px, 8vw, 90px);
+      }
+      .perkenalan h1 {
+        font: 700 clamp(2.3rem, 6.5vw, 4.6rem)/1.05 var(--font-judul);
+        letter-spacing: -0.03em;
+        margin: 0 0 24px;
+        max-width: 16ch;
+      }
+      .perkenalan p {
+        color: var(--teks-pudar);
+        font-size: 1.2rem;
+        max-width: 52ch;
+        margin: 0 0 32px;
+      }
+      .aksi {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .tombol {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 10px;
+        border: 1.5px solid var(--garis);
+        color: var(--teks);
+        text-decoration: none;
+        font-weight: 500;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .tombol:hover {
+        border-color: var(--aksen);
+      }
+      .tombol.utama {
+        background: var(--aksen);
+        border-color: var(--aksen);
+        color: var(--aksen-teks);
+      }
+      .tombol.utama:hover {
+        opacity: 0.9;
+      }
+
+      /* Satu gerakan saja: perkenalan muncul bertahap saat halaman dibuka */
+      .muncul {
+        animation: naik 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        animation-delay: calc(var(--urutan) * 110ms);
+      }
+      @keyframes naik {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .bagian {
+        padding: 56px 0 8px;
+      }
+      .judul-bagian {
+        border-top: 1px solid var(--garis);
+        padding-top: 20px;
+        margin-bottom: 24px;
+      }
+      .judul-bagian h2 {
+        font: 700 1.7rem var(--font-judul);
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+      .jumlah {
+        color: var(--teks-pudar);
+        font-weight: 500;
+      }
+
+      /* ===== 5. Pencarian dan filter ===== */
+      .alat {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      #cari {
+        flex: 1 1 260px;
+        padding: 12px 16px;
+        font: inherit;
+        font-size: 1rem;
+        border: 1px solid var(--garis);
+        border-radius: 10px;
+        background: var(--permukaan);
+        color: var(--teks);
+      }
+      #cari::placeholder {
+        color: var(--teks-pudar);
+      }
+      .filter {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .chip {
+        padding: 8px 16px;
+        font: 500 0.9rem var(--font-isi);
+        border: 1px solid var(--garis);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--teks-pudar);
+        cursor: pointer;
+      }
+      .chip:hover {
+        border-color: var(--aksen);
+        color: var(--aksen);
+      }
+      .chip.aktif {
+        background: var(--aksen);
+        border-color: var(--aksen);
+        color: var(--aksen-teks);
+      }
+
+      /* ===== 6. Daftar proyek (baris, bukan kotak) ===== */
+      .kartu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 26px 16px 26px 20px;
+        border-bottom: 1px solid var(--garis);
+        border-left: 3px solid transparent;
+        color: inherit;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          padding 0.2s;
+      }
+      .kartu:hover,
+      .kartu:focus-visible {
+        background: var(--permukaan);
+        border-left-color: var(--aksen);
+        padding-left: 28px;
+      }
+      .kartu h3 {
+        font: 700 1.35rem var(--font-judul);
+        letter-spacing: -0.01em;
+        margin: 0 0 2px;
+      }
+      .kartu:hover h3 {
+        color: var(--aksen);
+      }
+      .kartu p {
+        margin: 0;
+        color: var(--teks-pudar);
+      }
+      .label {
+        flex-shrink: 0;
+        font-size: 0.85rem;
+        color: var(--teks-pudar);
+        border: 1px solid var(--garis);
+        border-radius: 999px;
+        padding: 4px 12px;
+      }
+      .pesan-kosong {
+        display: none;
+        color: var(--teks-pudar);
+        padding: 24px 0;
+      }
+
+      /* ===== 7. Keahlian, kontak, footer ===== */
+      .keahlian {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .keahlian li {
+        padding: 8px 16px;
+        border: 1px solid var(--garis);
+        border-radius: 999px;
+        background: var(--permukaan);
+      }
+      .kontak {
+        font-size: 1.2rem;
+        max-width: 50ch;
+        margin: 0;
+      }
+      .kaki {
+        max-width: 960px;
+        margin: 72px auto 0;
+        padding: 24px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        border-top: 1px solid var(--garis);
+        color: var(--teks-pudar);
+        font-size: 0.9rem;
+      }
+      .kaki a {
+        color: var(--teks-pudar);
+      }
+
+      /* ===== 8. Layar kecil dan preferensi pengguna ===== */
+      @media (max-width: 640px) {
+        .menu a {
+          display: none;
+        }
+        .kartu {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+
     <!-- Pasang tema sebelum halaman tampil agar tidak berkedip -->
     <script>
       try {
@@ -137,8 +485,8 @@
           </a>
 
           <!-- Mau menambah proyek? Salin satu blok <a class="kartu"> di atas,
-             lalu ubah href, data-kategori, judul, dan deskripsinya.
-             Spasi pada nama folder ditulis %20 (contoh: "Pertemuan 13" jadi Pertemuan%2013). -->
+               lalu ubah href, data-kategori, judul, dan deskripsinya.
+               Spasi pada nama folder ditulis %20 (contoh: "Pertemuan 13" jadi Pertemuan%2013). -->
         </section>
 
         <p id="pesan-kosong" class="pesan-kosong">
@@ -176,7 +524,83 @@
       <a href="#atas">Kembali ke atas</a>
     </footer>
 
-    <!-- Menghubungkan file JavaScript (letakkan paling bawah) -->
-    <script src="script.js"></script>
+    <script>
+      // ===== 1. Mode gelap / terang (diingat di browser) =====
+      const tombolTema = document.getElementById("tombol-tema");
+      const root = document.documentElement;
+
+      function perbaruiTombol() {
+        tombolTema.textContent = root.classList.contains("gelap")
+          ? "Mode terang"
+          : "Mode gelap";
+      }
+      perbaruiTombol();
+
+      tombolTema.addEventListener("click", function () {
+        root.classList.toggle("gelap");
+        perbaruiTombol();
+        try {
+          localStorage.setItem(
+            "tema",
+            root.classList.contains("gelap") ? "gelap" : "terang",
+          );
+        } catch (e) {}
+      });
+
+      // ===== 2. Pencarian + filter kategori =====
+      const kotakCari = document.getElementById("cari");
+      const semuaKartu = document.querySelectorAll(".kartu");
+      const semuaChip = document.querySelectorAll(".chip");
+      const pesanKosong = document.getElementById("pesan-kosong");
+      const jumlah = document.getElementById("jumlah");
+      let kategoriAktif = "semua";
+
+      function terapkanFilter() {
+        const kataKunci = kotakCari.value.toLowerCase().trim();
+        let banyak = 0;
+
+        semuaKartu.forEach(function (kartu) {
+          const cocokTeks = kartu.textContent.toLowerCase().includes(kataKunci);
+          const cocokKategori =
+            kategoriAktif === "semua" ||
+            kartu.dataset.kategori === kategoriAktif;
+          const tampil = cocokTeks && cocokKategori;
+          kartu.style.display = tampil ? "flex" : "none";
+          if (tampil) banyak++;
+        });
+
+        jumlah.textContent = "(" + banyak + ")";
+        pesanKosong.style.display = banyak === 0 ? "block" : "none";
+      }
+
+      kotakCari.addEventListener("input", terapkanFilter);
+
+      semuaChip.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          semuaChip.forEach(function (c) {
+            c.classList.remove("aktif");
+          });
+          chip.classList.add("aktif");
+          kategoriAktif = chip.dataset.filter;
+          terapkanFilter();
+        });
+      });
+
+      // Tekan "/" untuk langsung mengetik di kotak pencarian
+      document.addEventListener("keydown", function (e) {
+        const sedangMengetik = /input|textarea|select/i.test(
+          document.activeElement.tagName,
+        );
+        if (e.key === "/" && !sedangMengetik) {
+          e.preventDefault();
+          kotakCari.focus();
+        }
+      });
+
+      terapkanFilter();
+
+      // ===== 3. Tahun otomatis di footer =====
+      document.getElementById("tahun").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
